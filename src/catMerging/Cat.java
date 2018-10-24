@@ -7,20 +7,20 @@ import java.awt.geom.*;
 public class Cat {
 	// drawing constants are private - noone needs to know what we're doing
 	// pick a head dimension
-	private static final int HEAD_DIMENSION = 1000;
+	private final int HEAD_DIMENSION = 1000;
 	// eyes will be about 1/4 from top of head and 1/4 from left
-	private static final int EYE_Y = HEAD_DIMENSION/4;
-	private static final int EYE_X = HEAD_DIMENSION/4;
-	private static final int EYE_SEPARATION = HEAD_DIMENSION/3;
+	private final int EYE_Y = HEAD_DIMENSION/4;
+	private final int EYE_X = HEAD_DIMENSION/4;
+	private final int EYE_SEPARATION = HEAD_DIMENSION/3;
 	// pick eye dimensions
-	private static final int EYE_HEIGHT = 250;
-	private static final int EYE_WIDTH = 200;
+	private final int EYE_HEIGHT = 250;
+	private final int EYE_WIDTH = 200;
 	// pick mouth height, width is based on head dimension
-	private static final int MOUTH_HEIGHT = 150;
-	private static final int MOUTH_WIDTH = HEAD_DIMENSION/4;
+	private final int MOUTH_HEIGHT = 200;
+	private final int MOUTH_WIDTH = HEAD_DIMENSION/4;
 	// mouth starts about 40% from left edge of head
-	private static final int MOUTH_X = HEAD_DIMENSION/5 * 2;
-	private static final int MOUTH_Y = HEAD_DIMENSION/5 * 3;
+	private final int MOUTH_X = HEAD_DIMENSION/5 * 2;
+	private final int MOUTH_Y = HEAD_DIMENSION/5 * 3;
 	
 	// draw will render the Cat on the Graphics object
 	public void draw(Graphics g, int catX, int catY)
@@ -29,7 +29,7 @@ public class Cat {
 		int x=catX;
 		int y=catY;
 		// Draw the head
-		g2.setColor(Color.blue);
+		g2.setColor(Color.darkGray);
 		g2.fillOval(x, y, HEAD_DIMENSION, HEAD_DIMENSION);
 		// Draw the eyes
 		g2.setColor(Color.green);
@@ -37,7 +37,8 @@ public class Cat {
 		y = catY + EYE_Y;
 		g2.fillOval(x, y, EYE_WIDTH, EYE_HEIGHT);
 		x += EYE_SEPARATION;
-		g2.fillOval(x, y, EYE_WIDTH, EYE_HEIGHT);
+		g2.setColor(Color.blue);
+		g2.fillOval(x, y, EYE_WIDTH, EYE_HEIGHT + 100);
 		// Draw the mouth
 		g2.setColor(Color.pink);
 		x = catX + MOUTH_X;
